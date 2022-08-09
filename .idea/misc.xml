@@ -3,7 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Proyectos Android Nativo/PlotTest/app/src/main/res/layout/activity_main.xml" value="0.35260416666666666" />
+        <entry key="..\:/Proyectos Android Nativo/PlotTest/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Proyectos Android Nativo/PlotTest/app/src/main/res/xml/line_point_formatter_with_labels.xml" value="0.2183698296836983" />
       </map>
     </option>
   </component>

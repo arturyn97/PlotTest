@@ -6,25 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.view.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
+    <com.androidplot.xy.XYPlot
         android:id="@+id/plot"
+        style="@style/APDefacto.Dark"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ic_launcher_background"
+        android:layout_height="300dp"
+        app:domainTitle="List A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineLabels="left|bottom"
+        app:rangeTitle="List B"
+        app:title="A Simple XY Plot" />
 
     <Button
         android:id="@+id/load_chart_btn"
