@@ -22,9 +22,9 @@ class MainViewModel : ViewModel() {
         viewModelScope.launch {
             isLoading.postValue(true)
             //Get the first 100 elements of List A
-            val firstElements = getData("0", "100", "100")
-            //Get the rest of the elements (900)
-            val rest = IntArray(900) { (0..100).random() }.asList()
+            val firstElements = getData("0", "100", "50")
+            //Get the rest of the elements (100)
+            val rest = IntArray(50) { (0..100).random() }.asList()
             //Merge
             val listA: ArrayList<Int> = ArrayList<Int>()
             listA.addAll(firstElements)
