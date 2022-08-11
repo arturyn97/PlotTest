@@ -7,7 +7,6 @@ class DataRepo {
     private val api = DataService()
 
     suspend fun getDataFromApi(min: String, max: String, count: String): List<Int> {
-        val response: List<Int> = api.getData(min, max, count)
-        return response
+        return api.getData(min, max, count)
     }
 }

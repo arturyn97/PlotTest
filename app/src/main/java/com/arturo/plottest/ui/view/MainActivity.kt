@@ -2,10 +2,9 @@ package com.arturo.plottest.ui.view
 
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
+import androidx.core.view.isVisible
 import com.androidplot.xy.*
 import com.arturo.plottest.databinding.ActivityMainBinding
 import com.arturo.plottest.ui.viewmodel.MainViewModel
@@ -21,16 +20,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Click events
         binding.loadChartBtn.setOnClickListener {
-            mainViewModel.loadChart()
+            mainViewModel.get_data()
         }
-
-        binding.plot.setDomainStep(StepMode.SUBDIVIDE, 11.toDouble())
-        binding.plot.setRangeStep(StepMode.SUBDIVIDE, 10.toDouble())
-        binding.plot.setRangeBoundaries(0, 9, BoundaryMode.FIXED)
-        binding.plot.setDomainBoundaries(0, 100, BoundaryMode.FIXED)
-        binding.plot.graph.linesPerDomainLabel = 1
-
+        //Observers
         mainViewModel.data.observe(this) {
             val series: XYSeries = SimpleXYSeries(it.ListA, it.ListB, "")
             val series1Format =
@@ -39,5 +33,15 @@ class MainActivity : AppCompatActivity() {
             binding.plot.addSeries(series1Format, series)
             binding.plot.redraw()
         }
+        mainViewModel.isLoading.observe(this) {
+            binding.loading.isVisible = it
+        }
+
+        //Plot design
+        binding.plot.setDomainStep(StepMode.SUBDIVIDE, 11.toDouble())
+        binding.plot.setRangeStep(StepMode.SUBDIVIDE, 10.toDouble())
+        binding.plot.setRangeBoundaries(0, 9, BoundaryMode.FIXED)
+        binding.plot.setDomainBoundaries(0, 100, BoundaryMode.FIXED)
+        binding.plot.graph.linesPerDomainLabel = 1
     }
 }
