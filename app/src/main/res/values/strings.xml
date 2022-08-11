@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">PlotTest</string>
     <string name="load_chart">Load Chart</string>
+    <string name="title">This is the demo for JCB</string>
 </resources>
